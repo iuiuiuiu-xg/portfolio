@@ -1,0 +1,172 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    color: red;
+    background-color: pink;
+}
+
+a {
+    color: red;
+}
+
+main {
+    margin: 0 auto;
+    font-size: 25px;
+    width: 50%;
+}
+
+.p1 {
+    background: url(images.webp) no-repeat;
+}
+
+.p2 {
+    background: url(images.webp) repeat;
+}
+
+.navigation {
+    justify-content: center;
+    display: flex;
+    gap: 40px;
+    margin-bottom: 20px;
+}
+
+.img_card {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.img_one {
+    border-radius: 20px;
+}
+
+.img_two {
+    opacity: 50%;
+}
+
+.img_three {
+    filter: grayscale(100%);
+}
+
+.img_four {
+    transform: rotate(180deg);
+}
+
+.img_card_two {
+    width: 40%;
+    position: relative;
+    margin: 0 auto;
+}
+
+.img_one_two {
+    position: absolute;
+    left: 100px;
+    top: 50px;
+}
+
+.img_two_two {
+    position: absolute;
+    left: 150px;
+    top: 100px;
+}
+
+.img_three_two {
+    position: absolute;
+    left: 200px;
+    top: 150px;
+}
+
+.link {
+    justify-content: center;
+    display: flex;
+    gap: 40px;
+    margin-top: 20px;
+}
+
+.card {
+    position: relative;
+    width: 250px;
+    height: 200px;
+    perspective: 1000px;
+    margin: 0 auto;
+}
+
+.card_open {
+    position: absolute;
+    inset: 0;
+    background: #4a6b5d;
+}
+
+.open_img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    transform-origin: left center;
+    transform: rotateY(0deg);
+    transition: transform 0.7s ease;
+}
+
+.card:hover .open_img {
+    transform: rotateY(-110deg);
+}
+
+table {
+    width: 800px;
+    margin: 0 auto;
+    border-collapse: collapse;
+    border: 4px solid #c00000;
+}
+
+caption {
+    caption-side: top;
+    font-size: 28px;
+    font-weight: bold;
+    color: #c00000;
+    padding: 12px;
+}
+
+thead td,
+tfoot td {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: #c00000;
+    border: 3px solid #c00000;
+    padding: 14px;
+}
+
+tbody td {
+    border: 3px solid #0000c0;
+    vertical-align: top;
+    padding: 16px;
+}
+
+.menu {
+    width: 70px;
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+    color: #0000c0;
+    line-height: 1.6;
+}
+
+.content {
+    text-align: center;
+    vertical-align: middle;
+    font-size: 22px;
+    font-weight: bold;
+    color: #0000c0;
+    height: 260px;
+}
+
+.crosh_img {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    margin: 0 auto;
+}

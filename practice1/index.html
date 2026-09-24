@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ПР№1</title>
+</head>
+<body>
+    <h3>Задание 1. Числа а и b выражают длины катетов одного прямоугольного треугольника, а с и d — другого. Определить, являются ли эти треугольники подобными.</h3>
+    <script>
+        let a = prompt("Катет а:");
+        let b = prompt("Катет b:");
+        let c = prompt("Катет c:");
+        let d = prompt("Катет d:");
+
+        if (a*d==b*c || a*c==b*d) {
+            alert("Ответ: " + "Треугольники подобные");
+            document.write("Ответ: " + "Треугольники подобные");
+        } else {
+            alert("Ответ: " + "Треугольники не подобные");
+            document.write("Ответ: " + "Треугольники не подобные");
+        }
+    </script>
+    <h3>Задание 2. Найти наибольшую цифру в записи данного натурального числа.</h3>
+    <script>
+        let num = prompt("Введите натуральное число:");
+        let max = 0;
+        while(num > 0) {
+            let c = num%10;
+            if (c > max) {
+                max = c;
+            }
+            num = (num - c)/10;
+        }
+        alert("Наибольшее число: " + max);
+        document.write("Наибольшее число: " + max);
+    </script>
+    <h3>Задание 3. Таблица</h3>
+    <table border="2">
+        <script>
+            for (let i = 1; i <= 10; i++) {
+
+                document.write("<tr>");
+
+                    for (let j = 1; j <= 10; j++) 
+                    {
+                        document.write("<td>" + i + "*" + j + "=" + (i * j) + "</td>");
+                    }
+
+                document.write("</tr>");
+            }
+        </script>
+    </table>
+</body>
+</html>

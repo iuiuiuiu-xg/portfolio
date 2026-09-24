@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="css/style.css"/>
+    <title>Задание 8</title>
+  </head>
+  <body>
+    <div class="container">
+      <title>Ввод имени</title>
+      <script>
+        function validate_form() {
+          var valid = true;
+          if (document.contact_form.contact_name.value == "") {
+            alert("Пожалуйста заполните поле 'Ваше имя'.");
+            valid = false;
+          }
+          return valid;
+        }
+      </script>
+      <form name="contact_form" onsubmit="return validate_form();">
+        <h1>Пожалуйста введите Ваше имя</h1>
+        <p>
+          Ваше имя:
+          <input type="text" name="contact_name"/>
+        </p>
+        <input type="submit" name="send" value="Отправить данные"/>
+      </form>
+      <div style="margin-top: 20px">
+        <a href="index9.html">Задание 9 ></a>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Угадайка</title>
+</head>
+<body>
+    <form name="forma2" onsubmit="return validate_form();">
+        <h1>Угадайка!</h1>
+        <p id="rangeInfo"></p>
+        <input type="text" name="answer" size="20" autocomplete="off">
+        <input type="submit" name="btn_answer" value="Go"
+               style="border: none; background-color: rgb(80, 241, 241); padding: 5px 6px; border-radius: 5px;">
+        <br><br>
+        <p id="result"></p>
+        <p id="countInfo">Попыток: 0</p>
+        <br>
+        <input type="button" value="Начать заново" onclick="restart();"
+               style="border: none; background-color: rgb(241, 150, 80); padding: 5px 10px; border-radius: 5px;">
+    </form>
+
+    <script>
+        var min = localStorage.getItem("min") * 1;
+        var max = localStorage.getItem("max") * 1;
+        var secret = localStorage.getItem("secret") * 1;
+        var count = localStorage.getItem("count") * 1;
+
+        document.getElementById("rangeInfo").textContent =
+            "Угадайте число от " + min + " до " + max;
+        document.getElementById("countInfo").textContent =
+            "Попыток: " + count;
+
+        function validate_form() {
+            var valid = true;
+
+            if (document.forma2.answer.value == "") {
+                alert("Пожалуйста заполните все поля!");
+                valid = false;
+            }
+
+            if (valid == false) return valid;
+
+            var num = document.forma2.answer.value * 1;
+
+            if (num != num) {
+                alert("Введите число!");
+                return false;
+            }
+
+            count = count + 1;
+            localStorage.setItem("count", count);
+
+            document.getElementById("countInfo").textContent =
+                "Попыток: " + count;
+
+            var resultEl = document.getElementById("result");
+
+            if (num < secret) {
+                resultEl.textContent = "Больше!";
+                resultEl.style.color = "blue";
+            } else if (num > secret) {
+                resultEl.textContent = "Меньше!";
+                resultEl.style.color = "orange";
+            } else {
+                resultEl.textContent = "Попал! Вы угадали с " + count + " попытки!";
+                resultEl.style.color = "green";
+            }
+
+            return false;
+        }
+
+        function restart() {
+            localStorage.removeItem("min");
+            localStorage.removeItem("max");
+            localStorage.removeItem("secret");
+            localStorage.removeItem("count");
+            window.location.href = "index.html";
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Задание 10</title>
+  </head>
+  <body>
+    <div class="container">
+      <form name="forma_1">
+        <input type="button" value="Пуск" name="beg_but" class="b_but" onclick="beg()"/>
+      </form>
+      <form name="forma_2">
+        <input type="button" value="Кнопка" name="beg_2" class="btn" id="btn" onclick="dvig()"/>
+      </form>
+      <script>
+        function beg() {
+          var elem = document.getElementById("btn");
+          var pos = 0;
+          var id = setInterval(frame, 3);
+          function frame() {
+            if (pos == 850) {
+              clearInterval(id);
+            } else {
+              pos++;
+              elem.style.top = pos + "px";
+              elem.style.left = pos + "px";
+            }
+          }
+        }
+        function dvig() {
+          alert("поймал");
+        }
+      </script>
+      <div style="margin-top: 20px">
+        <a href="index11.html">Задание 11 ></a>
+      </div>
+    </div>
+  </body>
+</html>

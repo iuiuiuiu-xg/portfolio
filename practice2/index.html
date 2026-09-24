@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Угадайка</title>
+</head>
+<body>
+    <form name="forma1" onsubmit="return validate_form();">
+        <h1>Угадайка!</h1>
+        <p>Укажите интервал чисел для угадывания</p>
+        с <input type="text" name="t1" size="10">
+        по <input type="text" name="t2" size="10">
+        <br><br>
+        <input type="submit" name="btn" value="Сохранить" style="border: none; background-color: rgb(27, 200, 200); padding: 5px 6px; border-radius: 5px;">
+        <input type="reset" name="btn_2" value="Отмена" style="border: none; background-color: rgb(80, 241, 241); padding: 5px 6px; border-radius: 5px;">
+    </form>
+
+    <script>
+        function validate_form() {
+            var valid = true;
+
+            if (document.forma1.t1.value == "" || document.forma1.t2.value == "") {
+                alert("Пожалуйста заполните все поля!");
+                valid = false;
+            }
+
+            if (valid == false) return valid;
+
+            var min = document.forma1.t1.value * 1;
+            var max = document.forma1.t2.value * 1;
+
+            if (min != min) {
+                alert("Первое значение должно быть числом!");
+                return false;
+            }
+            if (max != max) {
+                alert("Второе значение должно быть числом!");
+                return false;
+            }
+
+            if (min == 0) {
+                alert("Первое число должно быть положительным (не 0)!");
+                return false;
+            }
+            if (max == 0) {
+                alert("Второе число должно быть положительным (не 0)!");
+                return false;
+            }
+
+            if (min > max) {
+                var temp = min;
+                min = max;
+                max = temp;
+            }
+
+            if (min == max) {
+                alert("Числа должны быть разными!");
+                return false;
+            }
+
+            var rndm = Math.floor(Math.random() * (max - min + 1)) + min;
+
+            localStorage.setItem("min", min);
+            localStorage.setItem("max", max);
+            localStorage.setItem("secret", rndm);
+            localStorage.setItem("count", 0);
+
+            window.location.href = "index2.html";
+            return false;
+        }
+    </script>
+</body>
+</html>

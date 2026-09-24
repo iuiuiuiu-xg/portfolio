@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="css/style.css"/>
+    <title>Задание 9</title>
+  </head>
+  <body>
+    <div class="container">
+      <script>
+        function check() {
+            if(calc.answer.value=="4") {
+                alert("Правильно!");
+            } else {
+                alert("Неправильно!");
+            }
+        }
+      </script>
+      <form name="calc">
+        <p>Сколько будет 2 + 2?</p>
+        <input type="text" name="answer"/>
+        <input type="button" value="Готово" onclick="check();">
+      </form>
+      <div style="margin-top: 20px">
+        <a href="index10.html">Задание 10 ></a>
+      </div>
+    </div>
+  </body>
+</html>

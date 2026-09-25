@@ -3,57 +3,46 @@
   <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Document</title>
+    <title>Портфолио</title>
     <link rel="stylesheet" href="css/style.css"/>
   </head>
   <body>
     <header>
-
+      <h1>Портфолио</h1>
     </header>
+
     <main>
-      <section>
-        <h1>Портфолио</h1>
+      <section class="about">
+        <h2>О сайте</h2>
+        <p>
+          Это учебное портфолио, где собраны мои работы по дисциплине
+          <strong>«Проектирование и дизайн информационных систем»</strong>. Здесь я выкладываю лекционные
+          задания и практические работы, выполненные в течение семестра.
+        </p>
+        <ul class="about-list">
+          <li><strong>Автор:</strong> Гареева Аделина Рашидовна</li>
+          <li><strong>Группа:</strong> П-38</li>
+        </ul>
       </section>
+
       <section>
-        <h2>Темы</h2>
-        <p class="intro">Работы по темам и лекциям.</p>
-        <div class="cards">
-          <div class="card">
-            <h3>Лекция №2 — Повторение</h3>
-            <p>Работы по повторению HTML и CSS.</p>
-            <a class="btn" href="lecture2/index.html">Открыть работу</a>
-          </div>
-          <div class="card">
-            <h3>Лекция №3 — JavaScript</h3>
-            <p>Работы по основам JavaScript.</p>
-            <a class="btn" href="lecture3/index.html">Открыть работу</a>
-          </div>
-          <div class="card">
-            <h3>Лекция №5 — Формы</h3>
-            <p>Работы с HTML-формами.</p>
-            <a class="btn" href="lecture5/index.html">Открыть работу</a>
-          </div>
-        </div>
-      </section>
-      <section>
-        <h2>Практические</h2>
-        <p class="intro">Практические работы.</p>
-        <div class="cards">
-          <div class="card">
-            <h3>Практическая работа №1</h3>
-            <p>Задания практической работы.</p>
-            <a class="btn" href="practice1/index.html">Открыть работу</a>
-          </div>
-          <div class="card">
-            <h3>Практическая работа №2</h3>
-            <p>Задания практической работы.</p>
-            <a class="btn" href="practice2/index.html">Открыть работу</a>
-          </div>
+        <h2>Разделы</h2>
+        <p class="intro">Выберите раздел, чтобы перейти к работам.</p>
+        <div class="nav-cards">
+          <a class="nav-card" href="themes.html">
+            <h3>Темы</h3>
+            <p>Работы по темам и лекциям.</p>
+          </a>
+          <a class="nav-card" href="practicals.html">
+            <h3>Практические</h3>
+            <p>Практические работы.</p>
+          </a>
         </div>
       </section>
     </main>
-    <footer>
 
+    <footer>
+      
     </footer>
   </body>
 </html>

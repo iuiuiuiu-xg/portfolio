@@ -27,10 +27,8 @@
         var secret = localStorage.getItem("secret") * 1;
         var count = localStorage.getItem("count") * 1;
 
-        document.getElementById("rangeInfo").textContent =
-            "Угадайте число от " + min + " до " + max;
-        document.getElementById("countInfo").textContent =
-            "Попыток: " + count;
+        document.getElementById("rangeInfo").textContent = "Угадайте число от " + min + " до " + max;
+        document.getElementById("countInfo").textContent = "Попыток: " + count;
 
         function validate_form() {
             var valid = true;
@@ -52,8 +50,7 @@
             count = count + 1;
             localStorage.setItem("count", count);
 
-            document.getElementById("countInfo").textContent =
-                "Попыток: " + count;
+            document.getElementById("countInfo").textContent = "Попыток: " + count;
 
             var resultEl = document.getElementById("result");
 

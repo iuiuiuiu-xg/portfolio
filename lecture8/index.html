@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="кг">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лекция 8</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <section>
+    <h2>Задание 1</h2>
+    <svg width="300" height="300" viewBox="0 0 300 300">
+        <circle cx="75" cy="75" r="50"
+                stroke="red" fill="transparent" stroke-width="8"/>
+        <ellipse cx="75" cy="220" rx="20" ry="55"
+                 stroke="red" fill="transparent" stroke-width="8"/>
+        <rect x="175" y="25" width="100" height="100"
+              stroke="black" fill="transparent" stroke-width="8"/>
+        <rect x="175" y="170" width="100" height="100" rx="25" ry="25"
+              stroke="black" fill="transparent" stroke-width="8"/>
+    </svg>
+    <br><br>
+    <svg width="400" height="300" viewBox="0 0 400 300">
+        <path d="M30,50 Q60,100 30,150 T30,250"
+              fill="none" stroke="blue" stroke-width="10" stroke-linecap="round"/>
+        <polygon points="200,50 220,120 290,120 235,160 255,230 200,190 145,230 165,160 110,120 180,120"
+                 fill="green" stroke="green" stroke-width="4"/>
+        <line x1="320" y1="40" x2="380" y2="120"
+              stroke="orange" stroke-width="10" stroke-linecap="round"/>
+        <polyline points="320,200 350,200 330,240 370,240 330,290"
+                  fill="none" stroke="orange" stroke-width="10" stroke-linejoin="round"/>
+    </svg>
+</section>
+<section>
+    <h2>Задание 2</h2>
+    <svg width="500" height="260" viewBox="0 0 500 260">
+        <g transform="translate(20,10)">
+            <circle cx="100" cy="100" r="90"
+                    fill="#ffdd55" stroke="#222" stroke-width="6"/>
+            <circle cx="70" cy="80" r="10" fill="#222"/>
+            <circle cx="130" cy="80" r="10" fill="#222"/>
+            <path d="M50,130 Q100,180 150,130"
+                  fill="none" stroke="#222" stroke-width="8" stroke-linecap="round"/>
+        </g>
+        <g transform="translate(260,10)">
+            <circle cx="100" cy="100" r="90"
+                    fill="#ffdd55" stroke="#222" stroke-width="6"/>
+            <circle cx="70" cy="80" r="10" fill="#222"/>
+            <circle cx="130" cy="80" r="10" fill="#222"/>
+            <path d="M50,170 Q100,120 150,170"
+                  fill="none" stroke="#222" stroke-width="8" stroke-linecap="round"/>
+        </g>
+    </svg>
+</section>
+<section>
+    <h2>Задание 3</h2>
+    <svg width="600" height="200" viewBox="0 0 600 200">
+        <circle cy="100" r="50" fill="red">
+            <animate attributeName="cx"
+                     from="100" to="500"
+                     dur="5s"
+                     repeatCount="indefinite"/>
+        </circle>
+    </svg>
+</section>
+<section>
+    <h2>Задание 4</h2>
+    <svg class="hover-smile" width="220" height="220" viewBox="0 0 220 220">
+        <circle class="face" cx="110" cy="110" r="95"
+                fill="#ffdd55" stroke="#222" stroke-width="6"/>
+        <circle class="eye" cx="80" cy="90" r="12" fill="#222"/>
+        <circle class="eye" cx="140" cy="90" r="12" fill="#222"/>
+        <path class="mouth" d="M60,140 Q110,185 160,140"
+              fill="none" stroke="#222" stroke-width="8" stroke-linecap="round"/>
+    </svg>
+    <p>Наведите курсор - глаза и рот станут зелёными.</p>
+</section>
+<section>
+    <h2>Задание 5</h2>
+    <div class="balloon-scene" id="scene">
+        <svg id="balloon" viewBox="0 0 150 220">
+            <ellipse cx="75" cy="75" rx="65" ry="75" fill="#d81b45"/>
+            <polygon points="70,148 80,148 75,160" fill="#a31535"/>
+            <path d="M75,160 Q60,180 75,195 T75,215"
+                  fill="none" stroke="#a31535" stroke-width="2"/>
+            <ellipse cx="55" cy="50" rx="14" ry="20"
+                     fill="rgba(255,255,255,0.35)" transform="rotate(-20 55 50)"/>
+        </svg>
+    </div>
+    <button class="fly-btn" id="flyBtn">Лети</button>
+    <script>
+        document.getElementById('flyBtn').addEventListener('click', () => {
+            document.getElementById('scene').classList.toggle('fly');
+        });
+    </script>
+</section>
+</body>
+</html>

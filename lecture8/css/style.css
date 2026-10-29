@@ -1,0 +1,54 @@
+.hover-smile .face,
+.hover-smile .eye,
+.hover-smile .mouth {
+    transition: fill 0.3s, stroke 0.3s;
+}
+
+.hover-smile:hover .eye,
+.hover-smile:hover .mouth {
+    fill: #00e676;
+    stroke: #00e676;
+}
+
+.hover-smile:hover .face {
+    fill: #ffe082;
+    stroke: #00c853;
+}
+
+.balloon-scene {
+    position: relative;
+    width: 300px;
+    height: 500px;
+    background: #fff8d6;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 2px solid #f0e6b0;
+}
+
+#balloon {
+    position: absolute;
+    left: 75px;
+    bottom: 40px;
+    width: 150px;
+    height: 220px;
+    transition: transform 2.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.balloon-scene.fly #balloon {
+    transform: translate(30px, -420px) scale(0.4);
+}
+
+.fly-btn {
+    margin-top: 12px;
+    padding: 10px 24px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    background: #ff4d6d;
+    color: #fff;
+    cursor: pointer;
+}
+
+.fly-btn:hover { 
+    background: #e63958; 
+}

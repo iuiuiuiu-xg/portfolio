@@ -1,0 +1,82 @@
+body {
+    background-color: rgb(168, 138, 98);
+    font-family: 'Courier New', Courier, monospace;
+}
+
+button {
+    font-family: 'Courier New', Courier, monospace;
+    width: 100px;
+    height: 30px;
+    align-items: center;
+    border-radius: 5px;
+    border: none;
+    background-color: rgb(168, 138, 98);
+    font-weight: 800;
+    font-size: 16px;
+}
+
+p {
+    font-weight: 600;
+}
+
+h1 {
+    text-align: center;
+}
+
+.btn-flex {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.gamebtn {
+    width: 150px;
+}
+
+.restartbtn {
+    width: 150px;
+}
+
+button:hover {
+    background-color: rgb(128, 104, 73);
+}
+
+input {
+    border: none;
+    background-color: rgb(184, 159, 126);
+    width: 200px;
+    height: 30px;
+    border-radius: 5px;
+    padding-left: 5px;
+}
+
+input::placeholder {
+    color: rgb(90, 73, 51);
+}
+
+#gameScreen {
+    display: none;
+}
+
+#mapImage {
+    display: none;
+    width: 300px;
+    height: auto;
+    padding-top: 15px;
+}
+
+#resultScreen {
+    display: none;
+}
+
+.container {
+    border-radius: 20px;
+    background-color: rgb(238, 205, 161);
+    width: 1000px;
+    height: 800px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 0 auto;
+}

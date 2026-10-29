@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Главная</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+    <div id="gameSelectionScreen">
+        <h1>Выберите карту</h1>
+        <div class="btn-flex">
+            <button onclick="selectMap('Лес')">Лес</button>
+            <button onclick="selectMap('Пустыня')">Пустыня</button>
+        </div>
+    </div>
+
+    <div id="inputScreen" style="display: none;">
+        <h1>Введите ваше имя</h1>
+        <input type="text" id="playerName" placeholder="Ваше имя">
+        <button class="gamebtn" onclick="startGame()">Начать игру</button>
+    </div>
+
+    <img src="" id="mapImage" alt="Выбранная карта">
+
+    <div id="gameScreen">
+        <h1>Игровой экран</h1>
+        <p>Имя: <span id="playerDisplay"></span></p>
+        <p>Текущее время: <span id="currentTime"></span></p>
+        <p>Время с начала игры: <span id="elapsedTime">00:00</span></p>
+        <p>Жизни: <span id="livesCounter">5</span></p>
+        <button onclick="endGame()">Результат</button>
+    </div>
+
+    <div id="resultScreen">
+        <h1>Статистика игры</h1>
+        <p>Время в игре: <span id="timeInGame">00:00</span></p>
+        <p>Монстры: <span id="monsterCount">0</span></p>
+        <p>Ловушки: <span id="trapCount">0</span></p>
+        <p>Осталось жизней: <span id="livesRemaining">0</span></p>
+        <button class="restartbtn" onclick="restartGame()">Играть сначала</button>
+    </div>
+</div>
+</body>
+<script>
+    let selectedMap = '';
+    let startTime = null;
+    let elapsedTime = 0;
+    let lives = 5;
+
+    function selectMap(map) {
+        selectedMap = map;
+        const mapImage = document.getElementById('mapImage');
+
+        if (map === 'Лес') {
+            mapImage.src = 'les.jpg';
+        }
+        if (map === 'Пустыня') {
+            mapImage.src = 'pus.jpg';
+        }
+
+        mapImage.style.display = 'block';
+
+        document.getElementById('gameSelectionScreen').style.display = 'none';
+        document.getElementById('inputScreen').style.display = 'block'
+    }
+
+    function startGame() {
+        const name = document.getElementById('playerName').value;
+
+        if (name) {
+            document.getElementById('playerDisplay').innerText = name;
+            document.getElementById('gameScreen').style.display = 'block';
+            document.getElementById('inputScreen').style.display = 'none';
+            startTime = new Date();
+            updateGame();
+        } else {
+            alert('Пожалуйста, введите ваше имя.');
+        }
+    }
+
+    function updateGame() {
+        const now = new Date();
+        elapsedTime = Math.floor((now - startTime) / 1000);
+        const minutes = Math.floor(elapsedTime / 60);
+        const seconds = elapsedTime % 60;
+
+        document.getElementById('elapsedTime').innerText = `${minutes < 10 ? '0' : ''}${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+        document.getElementById('currentTime').innerText = now.toLocaleTimeString();
+
+        requestAnimationFrame(updateGame);
+    }
+
+    function endGame() {
+        document.getElementById('gameScreen').style.display = 'none';
+        mapImage.style.display = 'none';
+        document.getElementById('resultScreen').style.display = 'block';
+        document.getElementById('timeInGame').innerText = `${minutes} : ${seconds}`;
+        document.getElementById('monsterCount').innerText = monstersEncountered;
+        document.getElementById('trapCount').innerText = trapsEncountered;
+        document.getElementById('livesRemaining').innerText = lives;
+    }
+
+    function restartGame() {
+        document.getElementById('resultScreen').style.display = 'none';
+        document.getElementById('gameSelectionScreen').style.display = 'block';
+        selectedMap = '';
+        startTime = null;
+        elapsedTime = 0;
+        lives = 5;
+        monstersEncountered = 0;
+        trapsEncountered = 0;
+    }
+</script>
+</html>

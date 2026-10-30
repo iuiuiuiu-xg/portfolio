@@ -1,0 +1,17 @@
+.element {
+    height: auto;
+    width: 350px;
+    margin-top: 5px;
+    margin-left: 20px;
+    margin-bottom: 5px;
+    text-align: center;
+    cursor: move;
+}
+
+.container {
+    border: 2px solid red;
+    height: 420px;
+    width: 400px;
+    float: left;
+    margin: 50px;
+}

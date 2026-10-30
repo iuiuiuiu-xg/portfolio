@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лекция 14</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="source" class="container" ondragenter="return dragEnter(event)" ondrop="return dragDrop(event)" ondragover="return dragOver(event)">
+        <div id="firstDragElement" class="element" ondragstart="return dragStart(event)" ondragend="return dragEnd(event)" draggable="true"><img src="0.JPG" draggable="false" alt="0"></div>
+        <div id="secondDragElement" class="element" ondragstart="return dragStart(event)" ondragend="return dragEnd(event)" draggable="true"><img src="1.JPG" draggable="false" alt="1"></div>
+        <div id="thirdDragElement" class="element" ondragstart="return dragStart(event)" ondragend="return dragEnd(event)" draggable="true"><img src="2.JPG" draggable="false" alt="2"></div>
+        <div id="fourDragElement" class="element" ondragstart="return dragStart(event)" ondragend="return dragEnd(event)" draggable="true"><img src="3.JPG" draggable="false" alt="3"></div>
+    </div>
+    <div id="target" class="container" ondragenter="return dragEnter(event)" ondrop="return dragDrop(event)" ondragover="return dragOver(event)">
+
+    </div>
+</body>
+<script>
+    function dragStart(ev) {
+        ev.dataTransfer.effectAllowed = 'link';
+        ev.dataTransfer.setData("Text", ev.target.getAttribute('id'));
+        ev.dataTransfer.setDragImage(ev.target, 0, 0);
+        return true;
+    }
+    function dragEnter(ev) {
+        var idelt = ev.dataTransfer.getData("Text");
+        return true;
+    }
+    function dragEnd(ev) {
+        ev.dataTransfer.clearData("Text");
+        return true
+    }
+    function dragOver(ev) {
+        var idelt = ev.dataTransfer.getData("Text");
+        var id = ev.target.getAttribute('id');
+        return false;
+    }
+    function dragDrop(ev) {
+        var idelt = ev.dataTransfer.getData("Text");
+        ev.target.appendChild(document.getElementById(idelt));
+        ev.stopPropagation();
+        return false;
+    }
+</script>
+
+</html>

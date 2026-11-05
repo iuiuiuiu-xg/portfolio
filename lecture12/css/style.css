@@ -15,12 +15,12 @@ button {
     font-size: 16px;
 }
 
-p {
-    font-weight: 600;
+p { 
+    font-weight: 600; 
 }
 
-h1 {
-    text-align: center;
+h1 { 
+    text-align: center; 
 }
 
 .btn-flex {
@@ -30,15 +30,15 @@ h1 {
 }
 
 .gamebtn {
-    width: 150px;
+    width: 150px; 
 }
 
-.restartbtn {
-    width: 150px;
+.restartbtn { 
+    width: 150px; 
 }
 
-button:hover {
-    background-color: rgb(128, 104, 73);
+button:hover { 
+    background-color: rgb(128, 104, 73); 
 }
 
 input {
@@ -50,12 +50,12 @@ input {
     padding-left: 5px;
 }
 
-input::placeholder {
-    color: rgb(90, 73, 51);
+input::placeholder { 
+    color: rgb(90, 73, 51); 
 }
 
-#gameScreen {
-    display: none;
+#gameScreen { 
+    display: none; 
 }
 
 #mapImage {
@@ -65,8 +65,8 @@ input::placeholder {
     padding-top: 15px;
 }
 
-#resultScreen {
-    display: none;
+#resultScreen { 
+    display: none; 
 }
 
 .container {
@@ -79,4 +79,103 @@ input::placeholder {
     align-items: center;
     flex-direction: column;
     margin: 0 auto;
+}
+
+.map-card {
+    cursor: pointer;
+    border: 3px solid transparent;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: 0.2s;
+    background: rgb(184, 159, 126);
+    text-align: center;
+    width: 200px;
+}
+
+.map-card:hover { 
+    border-color: rgb(128, 104, 73); 
+    transform: scale(1.03); 
+}
+
+.map-card img { 
+    width: 200px; 
+    height: 130px; 
+    object-fit: cover; 
+    display: block; 
+}
+
+.map-card p { 
+    margin: 8px 0; 
+}
+
+#hud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+    margin-bottom: 12px;
+    font-size: 16px;
+    background: rgb(184, 159, 126);
+    padding: 10px 14px;
+    border-radius: 8px;
+}
+#hud span { 
+    white-space: nowrap; 
+}
+
+#gameContainer {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    margin: 0 auto;
+    border: 2px solid rgb(90, 73, 51);
+    background: rgb(184, 159, 126) center/cover no-repeat;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+#player {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background: blue;
+    border-radius: 50%;
+    z-index: 5;
+}
+
+#finish {
+    position: absolute;
+    width: 80px;
+    height: 30px;
+    background: repeating-linear-gradient(
+        45deg,
+        #000 0 8px,
+        #fff 8px 16px
+    );
+    left: 160px;
+    bottom: 0;
+    border: 2px solid #000;
+    z-index: 4;
+}
+
+.monster {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: red;
+    border-radius: 50%;
+}
+
+.trap {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: green;
+    opacity: 0.5;
+    border-radius: 5px;
+    z-index: 2;
+}
+
+#zoneStatus { 
+    font-weight: 800; 
 }

@@ -145,17 +145,20 @@ input::placeholder {
 
 #finish {
     position: absolute;
-    width: 80px;
-    height: 30px;
-    background: repeating-linear-gradient(
-        45deg,
-        #000 0 8px,
-        #fff 8px 16px
-    );
-    left: 160px;
+    width: 100px;
+    height: 34px;
+    left: 150px;
     bottom: 0;
-    border: 2px solid #000;
+    background: aqua;
+    border: none;
+    border-radius: 6px 6px 0 0;
     z-index: 4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 800;
+    font-size: 15px;
+    color: black;
 }
 
 .monster {
@@ -170,7 +173,7 @@ input::placeholder {
     position: absolute;
     width: 40px;
     height: 40px;
-    background: green;
+    background: blue;
     opacity: 0.5;
     border-radius: 5px;
     z-index: 2;

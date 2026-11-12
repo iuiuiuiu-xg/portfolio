@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <title>Собери блок-схему</title>
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+    <h2>Собери блок-схему</h2>
+    <p>
+      Задание. Числа а и b выражают длины катетов одного прямоугольного
+      треугольника, а с и d — другого. Определить, являются ли эти треугольники
+      подобными.
+    </p>
+
+    <div class="main">
+      <div class="block">
+        <h3>Перемешанные картинки</h3>
+        <div id="source" class="container" ondragenter="return dragEnter(event);" ondrop="return dragDrop(event);" ondragover="return dragOver(event);">
+          <div id="p5" class="element" draggable="true" ondragstart="return dragStart(event);" ondragend="return dragEnd(event);">
+            <img src="5.JPG" draggable="false"/>
+          </div>
+
+          <div id="p7" class="element" draggable="true" ondragstart="return dragStart(event);" ondragend="return dragEnd(event);">
+            <img src="7.JPG" draggable="false"/>
+          </div>
+
+          <div id="p1" class="element" draggable="true" ondragstart="return dragStart(event);" ondragend="return dragEnd(event);">
+            <img src="1.JPG" draggable="false"/>
+          </div>
+
+          <div id="p9" class="element" draggable="true" ondragstart="return dragStart(event);" ondragend="return dragEnd(event);">
+            <img src="9.JPG" draggable="false"/>
+          </div>
+
+          <div id="p3" class="element" draggable="true" ondragstart="return dragStart(event);" ondragend="return dragEnd(event);">
+            <img src="3.JPG" draggable="false"/>
+          </div>
+
+          <div id="p2" class="element" draggable="true" ondragstart="return dragStart(event);" ondragend="return dragEnd(event);">
+            <img src="2.JPG" draggable="false"/>
+          </div>
+
+          <div id="p6" class="element" draggable="true" ondragstart="return dragStart(event);" ondragend="return dragEnd(event);">
+            <img src="6.JPG" draggable="false"/>
+          </div>
+
+          <div id="p8" class="element" draggable="true" ondragstart="return dragStart(event);" ondragend="return dragEnd(event);">
+            <img src="8.JPG" draggable="false"/>
+          </div>
+
+          <div id="p4" class="element" draggable="true" ondragstart="return dragStart(event);" ondragend="return dragEnd(event);">
+            <img src="4.JPG" draggable="false"/>
+          </div>
+        </div>
+      </div>
+
+      <div class="block">
+        <h3>Собери здесь</h3>
+        <div id="target" class="container" ondragenter="return dragEnter(event);" ondrop="return dragDrop(event);" ondragover="return dragOver(event);">
+          <div class="place" id="place1"></div>
+          <div class="place" id="place2"></div>
+          <div class="place" id="place3"></div>
+          <div class="place" id="place4"></div>
+          <div class="place" id="place5"></div>
+          <div class="place" id="place6"></div>
+          <div class="place" id="place7"></div>
+          <div class="place" id="place8"></div>
+          <div class="place" id="place9"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bottom">
+      <button onclick="check()">Проверить</button>
+      <button onclick="restart()">Начать заново</button>
+      <div id="result"></div>
+    </div>
+
+<script>
+    function dragStart(ev) {
+        ev.dataTransfer.effectAllowed = "link";
+        ev.dataTransfer.setData("Text", ev.target.getAttribute("id"));
+        ev.dataTransfer.setDragImage(ev.target, 0, 0);
+        return true;
+    }
+
+    function dragEnter(ev) {
+        var idelt = ev.dataTransfer.getData("Text");
+        return true;
+    }
+
+    function dragEnd(ev) {
+        ev.dataTransfer.clearData("Text");
+        return true;
+    }
+
+    function dragOver(ev) {
+        var idelt = ev.dataTransfer.getData("Text");
+        var id = ev.target.getAttribute("id");
+        ev.preventDefault();
+        return false;
+    }
+
+    function dragDrop(ev) {
+        ev.preventDefault();
+
+        if (ev.currentTarget.id == "source") {
+          return false;
+        }
+
+        var idelt = ev.dataTransfer.getData("Text");
+        var place = ev.target.closest(".place");
+
+        if (place && place.children.length == 0) {
+          place.appendChild(document.getElementById(idelt));
+        }
+
+        return false;
+    }
+
+     function check() {
+        var correct = ["p1", "p2", "p3", "p4", "p5", "p6", "p7", "p8", "p9"];
+
+        var count = 0;
+
+        for (var i = 1; i <= 9; i++) {
+          var place = document.getElementById("place" + i);
+
+          if (
+            place.firstElementChild &&
+            place.firstElementChild.id == correct[i - 1]
+          ) {
+            count++;
+          }
+        }
+
+        var result = document.getElementById("result");
+
+        if (count == 9) {
+          result.innerText = "Все правильно!";
+        } else {
+          result.innerText = "Правильно размещено: " + count + " из 9";
+        }
+    }
+
+    var originalOrder = Array.from(document.querySelectorAll("#source .element"));
+
+    function restart() {
+        var source = document.getElementById("source");
+        originalOrder.forEach(function (element) {
+            source.appendChild(element);
+        });
+        document.getElementById("result").innerText = "";
+    }
+</script>
+</body>
+</html>
